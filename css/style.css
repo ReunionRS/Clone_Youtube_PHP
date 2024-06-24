@@ -1,0 +1,709 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+label,
+.error {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to top, #FF887D, #B63260) fixed;
+}
+
+section {
+    min-height: 100vh;
+}
+
+html {
+    height: 100%;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100px;
+    grid-template-areas:
+        "logo input-banner icon-setting";
+    background-color: #a92851;
+}
+
+video{
+    border-radius: 10px;
+}
+
+.logo {
+    position: relative;
+    margin: 16px;
+    grid-area: logo;
+}
+
+.logo img {
+    height: 100%;
+    float: left;
+}
+
+.logo p {
+    float: left;
+    font-size: 46px;
+    color: white;
+}
+
+.icon-user {
+    display: flex;
+    justify-content: flex-end;
+    grid-area: icon-setting;
+    margin: 16px;
+    padding: 8px;
+}
+
+.img-icon {
+    height: 100%;
+    padding: 1px 7px;
+}
+
+.icon-user img {
+    cursor: pointer;
+    height: 100%;
+    margin: 0 16px;
+}
+
+.search-banner {
+    grid-area: input-banner;
+    margin: 16px;
+    padding: 8px;
+}
+
+.search-banner form button[type="submit"] {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.search-banner form button[type="submit"]:hover {
+    opacity: 1;
+}
+
+input[type="search"] {
+    background: transparent;
+    margin: 0;
+    padding: 0 16px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    width: 100%;
+}
+
+input[type="search"]::placeholder {
+    font-family: 'Oswald', sans-serif;
+    color: #999999;
+}
+
+.search-banner form {
+    background-color: #FFF;
+    display: flex;
+    border-radius: 25px;
+    height: 100%;
+}
+
+.nav-and-prev-video {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100%;
+    grid-template-areas:
+        "nav prev-videos";
+    height: 100vh;
+}
+
+.navigation {
+    grid-area: nav;
+    margin: 16px;
+    border-right: 1px solid hsl(0, 0%, 100%);
+}
+
+.preview-videos {
+    grid-area: prev-videos;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33.3%, 1fr));
+
+}
+
+a,
+li {
+    text-decoration: none;
+    color: white;
+    font-family: 'Bebas Neue', Bebas Neue Regular, sans-serif;
+    font-size: 30px;
+    line-height: 50px;
+    height: 30px;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.video-card {
+    height: 25vh;
+    padding: 10px 90px 1px;
+    font-family: 'Bebas Neue', Bebas Neue Regular, sans-serif;
+    color: #FFFFFF;
+    margin: 10px 15px 70px;
+}
+
+.video-card h1{
+    white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.video-card img {
+    height: 80%;
+    width: 110%;
+    border-radius: 15px;
+    box-shadow: 10px 3px #e1e1e1;
+}
+
+h1 {
+    opacity: 100%;
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    opacity: 50%;
+}
+
+h3 {
+    font-size: 20px;
+    opacity: 50%;
+}
+
+/*Здесь уже секс*/
+
+.dark-bg {
+    background: rgba(29, 29, 29, 0.68);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 9999999999;
+    animation: showOverlay .5s ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.auth {
+    position: absolute;
+    right: 0;
+    width: 600px;
+    height: 100%;
+    background: linear-gradient(to top, #FF887D, #B63260) fixed;
+    animation: showOverlay .5s ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes showWindow {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes showOverlay {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}
+
+.dark-bg h1,
+h3 {
+    text-align: center;
+    color: #FFF;
+}
+
+.reg {
+    margin-top: 20%;
+}
+
+.reg h1 {
+    font-size: 40px;
+}
+
+.dark-bg .content {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin-top: 10%;
+    margin-left: 12%;
+}
+
+.dark-bg label {
+    color: #FFF;
+}
+
+.dark-bg input {
+    margin: 10px 0;
+    padding: 10px;
+    outline: none;
+    border: unset;
+}
+
+.dark-bg button {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    border-radius: 10px;
+    background-color: #f3918f;
+}
+
+.ect {
+    margin-top: 30px;
+}
+
+.ect p,
+a {
+    font-size: 35px;
+    color: #FFF;
+    font-family: 'Bebas Neue', Bebas Neue Regular, sans-serif;
+}
+
+.regestration-form input {
+    border-radius: 10px;
+}
+
+/*UPLOAD*/
+
+.upload {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    width: 600px;
+    height: 700px;
+    padding: 50px;
+    background: linear-gradient(to top, #FF887D, #B63260) fixed;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.exit {
+    margin: 0 10px;
+}
+
+#login,
+#register {
+    display: none;
+}
+
+.error {
+    color: #e5dddf;
+}
+
+.main-videos {
+    margin-top: 30px;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.main-videos h1 {
+    font-size: 50px;
+}
+
+.main-video-content {
+    margin-bottom: 5px;
+    width: 100%;
+    margin-top: 70px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.video-preview-image {
+    height: 200px;
+    width: 350px;
+    grid-area: video-preview;
+}
+
+.category-icon {
+    margin: 20%;
+    width: 60%;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip-content {
+    position: relative;
+}
+
+.category-icon {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tooltip-arrow {
+    position: absolute;
+    top: calc(100% + -90px);
+    left: 36%;
+    z-index: 3;
+    padding: 5px 24px 8px;
+    width: max-content;
+    max-width: 370px;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 200%;
+    color: #fff;
+    background: #222;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out, visibility .3s ease-in-out;
+}
+
+.category-icon:hover + .tooltip-arrow {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.category-icon:focus + .tooltip-arrow {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0)
+}
+
+
+.video {
+    font-family: 'Oswald', sans-serif;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #FFFFFF;
+    padding: 20px 0 20px;
+
+}
+
+.video p {
+    font-size: 30px;
+    color: white;
+}
+
+.video-preview {
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 50% 12.5% 12.5% 12.5% 12.5%;
+    grid-template-areas:
+    "video-preview video-title video-title video-title video-title"
+    "video-preview video-description video-description video-description video-description"
+    "video-preview like like-count dislike dislike-count"
+    "video-preview watch watch watch watch"
+}
+
+.video-preview img {
+    width: 100%;
+}
+
+.video-title {
+    grid-area: video-title;
+}
+
+.video-description {
+    display: block;
+    margin: auto 0;
+    grid-area: video-description;
+}
+
+.video-preview .video-title, .video-preview .video-description, .dislike-count, .like-count {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.like {
+    grid-area: like;
+}
+
+.like-count {
+    grid-area: like-count;
+}
+
+.review {
+    background: transparent !important;
+    border: none !important;
+}
+
+.dislike {
+    transform: rotate3d(0, 0, 1, 180deg);
+    grid-area: dislike;
+}
+
+.watch {
+    grid-area: watch;
+}
+
+.dislike-count {
+    grid-area: dislike-count;
+}
+
+.main-content {
+    display: grid;
+    gap:80px;
+    grid-template-columns: 3fr 1fr;
+
+}
+
+.main-content-right{
+    margin-top: 40px;
+}
+
+.next-video {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+
+.next-video img {
+    height: 125px;
+    width: 250px;
+}
+
+.next-video span {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.main-content-left {
+    margin-top: 60px;
+    margin-left: 50px;
+}
+
+.main-content-left-video span {
+    align-items: center;
+    display: flex;
+    column-gap: 100px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+.main-content-left-video h1 {
+    margin-top: 40px;
+}
+
+.main-content-left-video video {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex img{
+    height: 50px;
+    width: 50px;
+}
+
+.main-content-left-description  {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+.main-content-left-description div p {
+    margin-left: 20px;
+    font-size: 50px;
+}
+
+.main-content-left-description img {
+    height: 75px;
+    width: 75px;
+}
+
+.main-content-left-description-paragraph {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.main-content-left-description div{
+    display: flex;
+    align-items: center;
+}
+
+.main-content-left-input {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.main-content-left-input img {
+    height: 75px;
+    width: 75px;
+}
+
+.main-content-left-input input {
+    margin: 16px 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    color: white;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    font-family: 'Oswald', sans-serif;
+}
+
+.main-content-left-input input::placeholder{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.main-content-left-comments {
+    margin-top: 30px;
+    padding-bottom: 100px;
+}
+.main-content-left-comments span {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.main-content-left-comments span h2 {
+    font-size: 30px;
+}
+
+.main-content-left-comments span p {
+    margin-top: 0;
+}
+
+.main-content-left-comments p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.main-content-left-comments img {
+    height: 50px;
+    width: 50px;
+}
+
+.main-content-left-comments-container{
+    margin-top: 60px;
+}
+
+.video h1{
+    text-align: center;
+}
+
+.watch-btn button{
+    width: 100%;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #c44466;
+    font-size: 25px;
+    margin-left: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 15px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.watch-btn button:hover{
+    width: 100%;
+    background-color: #e85090;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.watch-btn-2 button{
+    width: 70%;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #c44466;
+    font-size: 15px;
+    margin-left: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 15px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.watch-btn-2 button:hover{
+    width: 70%;
+    background-color: #e85090;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.update button{
+    width: 50%;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #c44466;
+    font-size: 25px;
+    margin-left: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 15px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+
+

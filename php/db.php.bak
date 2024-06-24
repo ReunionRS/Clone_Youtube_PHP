@@ -1,0 +1,3 @@
+<?php
+
+$db = mysqli_connect('lean15bi.beget.tech', 'lean15bi', 'QwElEyZ8939_1', 'lean1500bi_db');
